@@ -1,0 +1,588 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.app {
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  max-width: 420px; /* iPhone Plus/Pro Max Breite als Maximum */
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f7;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Header - zentriert */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: #f5f5f7;
+  border-bottom: 1px solid #e5e5e7;
+  min-height: 60px;
+  flex-shrink: 0;
+}
+
+.map-button {
+  background: none;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  color: #1d1d1f;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.map-button:hover {
+  background-color: #e8e8ed;
+}
+
+.map-button:active {
+  background-color: #d2d2d7;
+  transform: scale(0.95);
+}
+
+.app-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+  text-align: center;
+  flex: 1;
+}
+
+.spacer {
+  width: 44px;
+  min-width: 44px;
+}
+
+/* Main Content - zentriert mit begrenzter Breite */
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1.5rem 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 350px; /* Begrenzte Breite für bessere Zentrierung */
+}
+
+.input-container {
+  width: 100%;
+}
+
+.code-input {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  border-radius: 16px;
+  background-color: #e8f4fd;
+  font-size: 1.125rem;
+  color: #374151;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  resize: none;
+  text-align: center; /* Text zentriert im Input */
+}
+
+.code-input::placeholder {
+  color: #9ca3af;
+}
+
+.code-input:focus {
+  background-color: #dbeafe;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Footer - zentriert */
+.footer {
+  padding: 1.5rem;
+  background-color: #f5f5f7;
+  flex-shrink: 0;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+.check-button {
+  width: 100%;
+  max-width: 350px; /* Gleiche Breite wie Content */
+  margin: 0 auto;
+  display: block;
+  padding: 1.25rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+  min-height: 56px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.check-button:hover:not(:disabled) {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.check-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+}
+
+.check-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Map Overlay - zentriert */
+.map-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.map-container {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.map-header {
+  background-color: #f8fafc;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.map-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  color: #6b7280;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.close-button:hover {
+  background-color: #f1f5f9;
+  color: #374151;
+}
+
+.close-button:active {
+  transform: scale(0.95);
+}
+
+.map-content {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.map-placeholder {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem;
+}
+
+.map-placeholder p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Tablet Optimizations - zentriert */
+@media (min-width: 768px) {
+  .app {
+    max-width: 480px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .header {
+    padding: 1.25rem 2rem;
+    min-height: 70px;
+  }
+
+  .app-title {
+    font-size: 1.375rem;
+  }
+
+  .main-content {
+    padding: 3rem 2rem 2rem;
+  }
+
+  .content-container {
+    max-width: 400px;
+  }
+
+  .code-input {
+    padding: 1.5rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 20px;
+  }
+
+  .footer {
+    padding: 2rem;
+  }
+
+  .check-button {
+    max-width: 400px;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    border-radius: 20px;
+    min-height: 64px;
+  }
+}
+
+/* Desktop Optimizations - zentriert */
+@media (min-width: 1024px) {
+  .app {
+    max-width: 500px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .header {
+    padding: 1.5rem 2.5rem;
+    min-height: 80px;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .main-content {
+    padding: 4rem 2.5rem 2rem;
+  }
+
+  .content-container {
+    max-width: 420px;
+  }
+
+  .code-input {
+    padding: 1.75rem 2.25rem;
+    font-size: 1.375rem;
+    border-radius: 24px;
+  }
+
+  .footer {
+    padding: 2.5rem;
+  }
+
+  .check-button {
+    max-width: 420px;
+    padding: 1.75rem;
+    font-size: 1.375rem;
+    border-radius: 24px;
+    min-height: 72px;
+  }
+}
+
+/* Mobile Optimizations - zentriert */
+@media (max-width: 767px) {
+  .app {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  .header {
+    padding: 0.75rem 1rem;
+    min-height: 56px;
+  }
+
+  .app-title {
+    font-size: 1rem;
+  }
+
+  .map-button,
+  .close-button {
+    padding: 0.5rem;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .map-button svg,
+  .close-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .spacer {
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .main-content {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+  }
+
+  .code-input {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .footer {
+    padding: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .check-button {
+    max-width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    min-height: 48px;
+  }
+}
+
+/* Extra kleine Geräte */
+@media (max-width: 360px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .main-content {
+    padding: 1rem 0.75rem 0.75rem;
+  }
+
+  .footer {
+    padding: 0.75rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+
+  .code-input {
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .check-button {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Große Bildschirme - App bleibt zentriert */
+@media (min-width: 1200px) {
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+
+  .app {
+    max-width: 520px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+    border-radius: 28px;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .app {
+    height: -webkit-fill-available;
+  }
+
+  body {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Landscape Mode für kleine Geräte */
+@media (max-height: 600px) and (orientation: landscape) {
+  .main-content {
+    padding-top: 1rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+
+  .map-content {
+    height: 250px;
+  }
+}
+
+/* Touch-Optimierungen */
+@media (hover: none) and (pointer: coarse) {
+  .map-button:hover,
+  .check-button:hover,
+  .close-button:hover {
+    background-color: initial;
+    transform: none;
+  }
+
+  .code-input:focus {
+    transform: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles für Accessibility */
+.map-button:focus-visible,
+.check-button:focus-visible,
+.close-button:focus-visible {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.code-input:focus-visible {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .header {
+    border-bottom: 2px solid #000;
+  }
+
+  .code-input {
+    border: 2px solid #666;
+  }
+
+  .check-button {
+    border: 2px solid #000;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  .app {
+    background-color: #1a1a1a;
+  }
+
+  .header {
+    background-color: #1a1a1a;
+    border-bottom-color: #333;
+  }
+
+  .app-title {
+    color: #ffffff;
+  }
+
+  .map-button {
+    color: #ffffff;
+  }
+
+  .map-button:hover {
+    background-color: #333;
+  }
+
+  .code-input {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+
+  .code-input::placeholder {
+    color: #888;
+  }
+
+  .footer {
+    background-color: #1a1a1a;
+  }
+}
