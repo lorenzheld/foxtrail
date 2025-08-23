@@ -5,7 +5,18 @@ Ein modernes React-Projekt, das mit Vite als Build-Tool entwickelt wurde. Das Pr
 ## 🚀 Über das Projekt
 
 Foxtrail ist eine React-Anwendung, die auf React 19 basiert und moderne Web-Entwicklungstools nutzt. Das Projekt verwendet Vite für schnelle Entwicklung und optimierte Builds.
-Projekt auch ersichtlich auf [Github Pages](https://lorenzheld.github.io/foxtrail/dist/)
+Build auch ersichtlich auf [Github Pages](https://lorenzheld.github.io/foxtrail/dist/)
+
+Lösungen:
+1. pickup  
+2. blubb  
+3. freischi  
+4. milchkasten  
+5. aspasia ag  
+6. quecksilber  
+7. 14  
+8. 20  
+9. hutter dynamics ag  
 
 ## 🛠️ Tech Stack
 
