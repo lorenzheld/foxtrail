@@ -1,12 +1,81 @@
-# React + Vite
+# Foxtrail
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ein modernes React-Projekt, das mit Vite als Build-Tool entwickelt wurde.
 
-Currently, two official plugins are available:
+## 🚀 Über das Projekt
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Foxtrail ist eine React-Anwendung, die auf React 19 basiert und moderne Web-Entwicklungstools nutzt. Das Projekt verwendet Vite für schnelle Entwicklung und optimierte Builds.
+Projekt auch ersichtlich auf [lorenzheld.ch](https://lorenzheld.ch)
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19.1.0** - Moderne React-Version mit den neuesten Features
+- **Vite 7.0.0** - Schneller Build-Tool und Dev-Server
+- **React Helmet** - SEO-optimierte Head-Verwaltung
+- **ESLint** - Code-Qualität und Konsistenz
+
+## 📋 Voraussetzungen
+
+- Node.js (Version 16 oder höher)
+- npm oder yarn
+
+## 🚀 Installation & Start
+
+1. Repository klonen:
+```bash
+git clone https://github.com/lorenzheld/foxtrail.git
+cd foxtrail
+```
+
+2. Dependencies installieren:
+```bash
+npm install
+```
+
+3. Entwicklungsserver starten:
+```bash
+npm run dev
+```
+
+4. Im Browser öffnen: `http://localhost:5173`
+
+## 📜 Verfügbare Scripts
+
+- `npm run dev` - Startet den Entwicklungsserver
+- `npm run build` - Erstellt einen Production-Build
+- `npm run preview` - Vorschau des Production-Builds
+- `npm run lint` - Führt ESLint-Checks durch
+
+## 🔧 Entwicklung
+
+Das Projekt ist mit modernen React-Features und Best Practices konfiguriert:
+
+- **Hot Module Replacement (HMR)** für schnelle Entwicklung
+- **ESLint-Konfiguration** für sauberen Code
+- **TypeScript-Support** für bessere Entwicklererfahrung
+
+## 📦 Build
+
+Für einen Production-Build:
+
+```bash
+npm run build
+```
+
+Die Build-Artefakte werden im `dist` Ordner erstellt.
+
+## 🤝 Beitragen
+
+1. Fork das Repository
+2. Erstelle einen Feature-Branch (`git checkout -b feature/amazing-feature`)
+3. Committe deine Änderungen (`git commit -m 'Add amazing feature'`)
+4. Push zum Branch (`git push origin feature/amazing-feature`)
+5. Öffne eine Pull Request
+
+## 📄 Lizenz
+
+Dieses Projekt ist privat und nicht für öffentliche Nutzung bestimmt.
+
+## 👤 Autor
+
+**lorenzheld** - [GitHub](https://github.com/lorenzheld)
