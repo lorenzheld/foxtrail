@@ -1,6 +1,6 @@
 # Foxtrail
 
-Ein modernes React-Projekt, das mit Vite als Build-Tool entwickelt wurde.
+Ein modernes React-Projekt, das mit Vite als Build-Tool entwickelt wurde. Das Projekt ist auf dem dev branch ersichtlich. 
 
 ## 🚀 Über das Projekt
 
